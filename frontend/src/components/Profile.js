@@ -60,6 +60,11 @@ const mapStateToProps = (state) => ({
   profile: state.profile,
 });
 
+.user-pic {
+  height: 40px;
+  width: 40px;
+}
+
 const mapDispatchToProps = (dispatch) => ({
   onFollow: (username) =>
     dispatch({
