@@ -42,6 +42,14 @@ class Item extends React.Component {
     const canModify =
       this.props.currentUser &&
       this.props.currentUser.username === this.props.item.seller.username;
+
+        // check if item.image is null
+    const itemImage = this.props.item.image ? (
+      this.probs.item.image
+    ) : (
+      "placeholder.png"
+    );
+
     return (
       <div className="container page" id="item-container">
         <div className="text-dark">
@@ -49,6 +57,7 @@ class Item extends React.Component {
             <div className="col-6">
               <img
                 src={this.props.item.image}
+                src={itemImage}
                 alt={this.props.item.title}
                 className="item-img"
                 style={{ height: "500px", width: "100%", borderRadius: "6px" }}
@@ -67,15 +76,6 @@ class Item extends React.Component {
                 );
               })}
             </div>
-          </div>
-
-          <div className="row bg-light-gray p-4">
-            <CommentContainer
-              comments={this.props.comments || []}
-              errors={this.props.commentErrors}
-              slug={this.props.match.params.id}
-              currentUser={this.props.currentUser}
-            />
           </div>
         </div>
       </div>
